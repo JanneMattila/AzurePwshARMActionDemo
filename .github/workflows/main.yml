@@ -11,9 +11,6 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
-#    - name: Azure PowerShell & ARM template deployment
-#      run: pwsh -File ./deploy/deploy.ps1
-
     - name: Azure PowerShell & ARM template deployment
       run: ./deploy/deploy.ps1 -ResourceGroupName "pwsh-dev-rg" -Location "North Europe"
       shell: pwsh
