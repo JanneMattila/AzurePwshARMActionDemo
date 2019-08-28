@@ -11,5 +11,10 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         
+#    - name: Azure PowerShell & ARM template deployment
+#      run: pwsh -File ./deploy/deploy.ps1
+
     - name: Azure PowerShell & ARM template deployment
-      run: pwsh -File ./deploy/deploy.ps1
+      run: ./deploy/deploy.ps1
+      shell: pwsh
+      
