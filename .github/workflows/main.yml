@@ -1,0 +1,15 @@
+name: Azure Deployment
+on: [push]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - uses: jannemattila/actions/azurepowershell@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        
+    - name: Azure PowerShell & ARM template deployment
+      run: pwsh -File ./deploy/deploy.ps1
